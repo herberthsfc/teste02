@@ -1,21 +1,21 @@
 exports.wait = () => {
-	return`*「 WAIT 」 SEDANG PROSES*`
+	return`*「 ⏳ 」 CARREGANDO...*`
 }
 
 exports.succes = () => {
-	return`*「 SUCCES 」*`
+	return`*「 ✔️ 」Sucesso!*`
 }
 
 exports.lvlon = () => {
-	return`*「 ENABLE 」 LEVELING*`
+	return`*「 ✔️ 」 Ativar Leveling!*`
 }
 
 exports.lvloff = () => {
-	return`*「 DISABLE 」 LEVELING*`
+	return`*「 ❗ 」 Desativar Leveling!*`
 }
 
 exports.lvlnul = () => {
-	return`*LEVELMU MASIH KOSONG*`
+	return`*Seu nível ainda está no 0!*`
 }
 
 exports.lvlnoon = () => {
@@ -23,11 +23,11 @@ exports.lvlnoon = () => {
 }
 
 exports.noregis = () => {
-	return`*「 BELUM DAFTAR 」*\n\n*cara daftar ${prefix}daftar nama|umur* \n*contoh ${prefix}daftar affis|17*`
+	return`*「 REGISTRE-SE 」*\n\n*Para se registrar, digite: ${prefix}daftar nome|idade* \n*Exemplo: ${prefix}daftar Herberth|10*`
 }
 
 exports.rediregis = () => {
-	return`*「 SUDAH DAFTAR 」*\n\n*kamu sudah terdaftar di database bot*`
+	return`*「 JA ESTÁ REGISTRADO(A) 」*\n\n*Você já está registrado no banco de dados do bot!*`
 }
 
 exports.stikga = () => {
@@ -79,7 +79,7 @@ exports.pc = () => {
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
-	return`*「 DATA NEGARA 」*\n\nkamu sudah terdaftar dengan data \n\n┏━⊱nama\n┗⊱${namaUser}\n┏━⊱nomer\n┗⊱wa.me/${sender.split("@")[0]}\n┏━⊱umur\n┗⊱${umurUser}\n┏━⊱waktu pendaftaran\n┗⊱${time}\n\n┏━❉ *NS* ❉━\n┣⊱${serialUser}\n┗⊱NOTE : jangan sampai lupa nomer ini karena ini penting:v`
+	return`*「 REGISTRADO(A)✔️ 」*\n\nAbaixo estão seus dados de registro no HDBot.exe \n\n┏━⊱Nome:\n┗⊱${namaUser}\n┏━⊱Número:\n┗⊱wa.me/${sender.split("@")[0]}\n┏━⊱Idade:\n┗⊱${umurUser}\n┏━⊱Hora e Data do Registro:\n┗⊱${time}\n\n┏━❉ *Código:* ❉━\n┣⊱${serialUser}\n┗⊱NOTA: não se esqueça deste número porque é importante!`
 }
 
 exports.cmdnf = (prefix, command) => {
