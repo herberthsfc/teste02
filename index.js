@@ -263,7 +263,7 @@ client.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Hallo @${num.split('@')[0]}\Selamat datang di group *${mdata.subject}* yang betah ya di sini`
+				teks = `Olá @${num.split('@')[0]}\Seja Bem Vindo(a) ao grupo *${mdata.subject}* \n\n• Proibido links de grupos.\n• Proibido pornografia.\n• Proibido ser inativo(a).\n• Proibido corrente ou spam.`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -273,7 +273,7 @@ client.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `akhirnya beban group berkurang 𝟭,bye bye🥳 @${num.split('@')[0]} jasamu akan di kubur dalam²`
+				teks = `Tchau Corno(a) @${num.split('@')[0]} 🐂`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -528,7 +528,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 			data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=BotWeA`)
 			hepi = data.result[0] 
-			teks = `*Nama*: ${data.result[0].title}\n*publisher*: ${hepi.publisher}\n*mod info:* ${hepi.mod_info}\n*size*: ${hepi.size}\n*latest version*: ${hepi.latest_version}\n*genre*: ${hepi.genre}\n*link:* ${hepi.link}\n*download*: ${hepi.download}`
+			teks = `*Nome*: ${data.result[0].title}\n*Editor*: ${hepi.publisher}\n*Informações*: ${hepi.mod_info}\n*Tamanho*: ${hepi.size}\n*Versão mais Recente*: ${hepi.latest_version}\n*Gênero*: ${hepi.genre}\n*Link:* ${hepi.link}\n*Download*: ${hepi.download}`
 			buffer = await getBuffer(hepi.image)
 			client.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
 			await limitAdd(sender)
@@ -910,14 +910,13 @@ client.on('group-participants-update', async (anu) => {
 					break 
 					case 'pinterest':
 					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, {method: 'get'})
 					reply(ind.wait())
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
-					client.sendMessage(from, pok, image, { quoted: mek, caption: `*𝐏𝐈𝐍𝐓𝐄𝐑𝐄𝐒𝐓*`})
+					client.sendMessage(from, pok, image, { quoted: mek, caption: `*✔️*`})
 					await limitAdd(sender)
 					break 
 					case 'resepmasakan':
@@ -1262,9 +1261,7 @@ client.on('group-participants-update', async (anu) => {
 					break
 				case 'stiker': 
 				case 'sticker':
-				case 's':
-				    if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    await limitAdd(sender)
+				case 'fig':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -1319,9 +1316,8 @@ client.on('group-participants-update', async (anu) => {
 						reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
 					}
 					break
-				case 'tts':
+				case 'audio':
 				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (args.length < 1) return client.sendMessage(from, 'Diperlukan kode bahasa!!', text, {quoted: mek})
 					const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: mek})
@@ -1523,7 +1519,7 @@ client.on('group-participants-update', async (anu) => {
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break	
-			     	case 'kick':
+			     	case 'ban':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -1640,7 +1636,14 @@ client.on('group-participants-update', async (anu) => {
 					client.blockUser (`${body.slice(10)}@c.us`, "remove")
 					client.sendMessage(from, `perintah Diterima, membuka blokir wa.me/${body.slice(10)}`, text)
 					break
-				case 'welcome':
+					case 'mia':
+					if (!isRegistered) return reply(ind.noregis())
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					memein = await kagApi.memeindo()
+					buffer = await getBuffer(`https://i.imgur.com/Sy9K8m6.jpg`)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '*VIDEOS MIA KHALIFA:*\n(o adm liberou taok)\n\nxvideos.com/pornstar-channels/mia-khalifa '})
+					break
+				case 'bemvindo':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (args.length < 1) return reply('Boo :𝘃')
